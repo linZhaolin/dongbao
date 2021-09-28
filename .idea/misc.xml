@@ -10,6 +10,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/lzl-dongbao-common/pom.xml" />
+        <option value="$PROJECT_DIR$/lzl-dongbao-service/lzl-dongbao-sms/pom.xml" />
       </set>
     </option>
   </component>

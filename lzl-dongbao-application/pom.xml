@@ -11,6 +11,11 @@
 
     <groupId>com.lzl</groupId>
     <artifactId>lzl-dongbao-application</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>lzl-dongbao-manager-web</module>
+        <module>lzl-dongbao-portal-web</module>
+    </modules>
 
 
 </project>

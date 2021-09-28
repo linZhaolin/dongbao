@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/lzl-dongbao-common/lzl-dongbao-common.iml" filepath="$PROJECT_DIR$/lzl-dongbao-common/lzl-dongbao-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lzl-dongbao-service/lzl-dongbao-sms/lzl-dongbao-sms.iml" filepath="$PROJECT_DIR$/lzl-dongbao-service/lzl-dongbao-sms/lzl-dongbao-sms.iml" />
     </modules>
   </component>
 </project>

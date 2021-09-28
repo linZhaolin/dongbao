@@ -11,6 +11,18 @@
 
     <groupId>com.lzl</groupId>
     <artifactId>lzl-dongbao-service</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>lzl-dongbao-oms</module>
+        <module>lzl-dongbao-pms</module>
+        <module>lzl-dongbao-ums</module>
+        <module>lzl-dongbao-pay</module>
+        <module>lzl-dongbao-cart</module>
+        <module>lzl-dongbao-dictionary</module>
+        <module>lzl-dongbao-sms</module>
+        <module>lzl-dongbao-sms</module>
+        <module>lzl-dongbao-cms</module>
+    </modules>
 
 
 </project>
