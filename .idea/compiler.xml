@@ -2,29 +2,30 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="lzl-dongbao-dictionary" />
+        <module name="lzl-dongbao-generator" />
         <module name="lzl-dongbao-portal-web" />
-        <module name="lzl-dongbao-manager-web" />
-        <module name="lzl-dongbao-pay-api" />
-        <module name="lzl-dongbao-ums-api" />
+        <module name="lzl-dongbao-common-base" />
         <module name="lzl-dongbao-job" />
+        <module name="lzl-dongbao-cms" />
+        <module name="lzl-dongbao-ums-api" />
         <module name="lzl-dongbao-cart" />
         <module name="lzl-dongbao-common-util" />
         <module name="lzl-dongbao-dictionary-api" />
-        <module name="lzl-dongbao-ums" />
         <module name="lzl-dongbao-pay" />
         <module name="lzl-dongbao-oms" />
         <module name="lzl-dongbao-pms" />
         <module name="lzl-dongbao-sms-api" />
         <module name="lzl-dongbao-sms" />
-        <module name="lzl-dongbao-common-base" />
-        <module name="lzl-dongbao-cms" />
+        <module name="lzl-dongbao-ums" />
+        <module name="lzl-dongbao-manager-web" />
         <module name="lzl-dongbao-cart-api" />
-        <module name="lzl-dongbao-generator" />
+        <module name="lzl-dongbao-pay-api" />
         <module name="lzl-dongbao-oms-api" />
         <module name="lzl-dongbao-pms-api" />
         <module name="lzl-dongbao-cms-api" />
@@ -35,5 +36,31 @@
       <module name="lzl-dongbao-sms" target="1.8" />
       <module name="msb-dongbao-common" target="1.8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="lzl-dongbao-cart" options="-parameters" />
+      <module name="lzl-dongbao-cart-api" options="-parameters" />
+      <module name="lzl-dongbao-cms" options="-parameters" />
+      <module name="lzl-dongbao-cms-api" options="-parameters" />
+      <module name="lzl-dongbao-common-base" options="-parameters" />
+      <module name="lzl-dongbao-common-util" options="-parameters" />
+      <module name="lzl-dongbao-dictionary" options="-parameters" />
+      <module name="lzl-dongbao-dictionary-api" options="-parameters" />
+      <module name="lzl-dongbao-generator" options="-parameters" />
+      <module name="lzl-dongbao-job" options="-parameters" />
+      <module name="lzl-dongbao-manager-web" options="-parameters" />
+      <module name="lzl-dongbao-oms" options="-parameters" />
+      <module name="lzl-dongbao-oms-api" options="-parameters" />
+      <module name="lzl-dongbao-pay" options="-parameters" />
+      <module name="lzl-dongbao-pay-api" options="-parameters" />
+      <module name="lzl-dongbao-pms" options="-parameters" />
+      <module name="lzl-dongbao-pms-api" options="-parameters" />
+      <module name="lzl-dongbao-portal-web" options="-parameters" />
+      <module name="lzl-dongbao-sms" options="-parameters" />
+      <module name="lzl-dongbao-sms-api" options="-parameters" />
+      <module name="lzl-dongbao-ums" options="-parameters" />
+      <module name="lzl-dongbao-ums-api" options="-parameters" />
+    </option>
   </component>
 </project>
