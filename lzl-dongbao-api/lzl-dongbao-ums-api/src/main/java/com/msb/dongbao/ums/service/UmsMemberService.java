@@ -1,6 +1,7 @@
 package com.msb.dongbao.ums.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.msb.donbao.common.base.result.ResultWrapper;
 import com.msb.dongbao.ums.entity.UmsMember;
 import com.msb.dongbao.ums.entity.dto.UmsMemberLoginParamDTO;
 import com.msb.dongbao.ums.entity.dto.UmsMemberRegisterParamDTO;
@@ -14,13 +15,13 @@ import com.msb.dongbao.ums.entity.dto.UmsMemberRegisterParamDTO;
  * @since 2021-09-29
  */
 public interface UmsMemberService {
-    UmsMember edit(String username);
+    ResultWrapper edit(UmsMember umsMember);
 
-    String register(UmsMemberRegisterParamDTO umsMemberRegisterParamDTO);
+    ResultWrapper register(UmsMemberRegisterParamDTO umsMemberRegisterParamDTO);
 
-    String register();
+    ResultWrapper register();
 
-    String login(UmsMemberLoginParamDTO umsMemberLoginParamDTO);
+    ResultWrapper login(UmsMemberLoginParamDTO umsMemberLoginParamDTO);
 
 
 }

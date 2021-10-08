@@ -9,15 +9,15 @@
     private String email;
     private String nickName;
     private String note;
-    private Date createTime;
+    private Date create-Time;
     private Date loginTime;
     private Integer status;-->
-    <select id="selectByName" resultType="com.msb.dongbao.ums.entity.UmsMember" parameterType="string">
-        select id,username,password,icon,email,nickname,note,create_time, login_time,status from ums_member where username=#{name}
-    </select>
+<!--    <select id="selectByName" resultType="com.msb.dongbao.ums.entity.UmsMember" parameterType="string">-->
+<!--        select id,username,password,icon,email,nick_name,note,gmt_create, login_time,status,gmt_modified from ums_member where username=#{name}-->
+<!--    </select>-->
 
     <select id="selectByName" parameterType="string" resultType="com.msb.dongbao.ums.entity.UmsMember">
-        select * from ums_member where nick_name=#{name}
+        select * from ums_member where username=#{name}
     </select>
 
 </mapper>

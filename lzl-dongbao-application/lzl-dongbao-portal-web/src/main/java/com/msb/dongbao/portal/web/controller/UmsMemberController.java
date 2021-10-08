@@ -6,10 +6,12 @@ import com.msb.dongbao.ums.entity.UmsMember;
 import com.msb.dongbao.ums.entity.dto.UmsMemberLoginParamDTO;
 import com.msb.dongbao.ums.entity.dto.UmsMemberRegisterParamDTO;
 import com.msb.dongbao.ums.service.UmsMemberService;
+import com.smb.msbdongbaocommonutil.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.xml.transform.Result;
 
 /**
  * <p>
@@ -27,8 +29,8 @@ public class UmsMemberController {
      UmsMemberService umsMemberService;
 
     @GetMapping("edit")
-    public UmsMember edit(@RequestBody String username){
-     return umsMemberService.edit(username);
+    public ResultWrapper edit(@RequestBody UmsMember umsMember){
+     return umsMemberService.edit(umsMember);
     }
 
     @GetMapping("hello")
@@ -61,11 +63,25 @@ public class UmsMemberController {
  /*
  * 登录
  * */
- @PostMapping
-    public String login(@RequestBody UmsMemberLoginParamDTO umsMemberLoginParamDTO){
+ @PostMapping("/login")
+    public ResultWrapper login(@RequestBody UmsMemberLoginParamDTO umsMemberLoginParamDTO){
     return umsMemberService.login(umsMemberLoginParamDTO);
  }
 
+ /*
+ *  这是测试的 系统中的任意一个接口,
+  * 修改用户信息。
+  * @param token
+  * @return
+ * */
+ @GetMapping("/test-verify")
+public ResultWrapper verify(String token){
+
+//     String s= JwtUtil.parseToken(token);
+//     String token1=JwtUtil.createToken(s);
+     System.out.println("正常业务");
+     return ResultWrapper.getSuccessBuilder().build();
+ }
 
 
 

@@ -13,4 +13,13 @@
     <artifactId>lzl-dongbao-common-util</artifactId>
 
 
+    <dependencies>
+
+        <dependency>
+            <groupId>io.jsonWebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.7.0</version>
+        </dependency>
+
+    </dependencies>
 </project>

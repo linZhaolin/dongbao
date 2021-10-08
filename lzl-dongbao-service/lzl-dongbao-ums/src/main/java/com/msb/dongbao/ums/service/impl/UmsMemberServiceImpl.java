@@ -1,11 +1,15 @@
 package com.msb.dongbao.ums.service.impl;
 
+import com.msb.donbao.common.base.enums.StateCodeEnum;
+import com.msb.donbao.common.base.result.ResultWrapper;
 import com.msb.dongbao.ums.entity.UmsMember;
 import com.msb.dongbao.ums.entity.dto.UmsMemberLoginParamDTO;
 import com.msb.dongbao.ums.entity.dto.UmsMemberRegisterParamDTO;
+import com.msb.dongbao.ums.entity.response.UserMemberLoginResponse;
 import com.msb.dongbao.ums.mapper.UmsMemberMapper;
 import com.msb.dongbao.ums.service.UmsMemberService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.smb.msbdongbaocommonutil.JwtUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -32,8 +36,9 @@ public class UmsMemberServiceImpl implements UmsMemberService {
     private PasswordEncoder passwordEncoder;
 
     @Override
-    public UmsMember edit(String username) {
-        return umsMemberMapper.selectByName(username);
+    public ResultWrapper edit(UmsMember umsMember) {
+       umsMemberMapper.updateById(umsMember);
+        return  ResultWrapper.getSuccessBuilder().date(umsMember).build();
     }
 
     /*
@@ -59,27 +64,27 @@ BeanUtils.copyProperties("要转换的类", "转换后的类");
 如果两者相同，说明用户输入的密码正确。
 * */
     @Override
-    public String register(UmsMemberRegisterParamDTO umsMemberRegisterParamDTO) {
+    public ResultWrapper register(UmsMemberRegisterParamDTO umsMemberRegisterParamDTO) {
 
         UmsMember u = new UmsMember();
         BeanUtils.copyProperties(umsMemberRegisterParamDTO,u);
         String encode = passwordEncoder.encode(umsMemberRegisterParamDTO.getPassword());
         u.setPassword(encode);
         umsMemberMapper.insert(u);
-        return "success";
+        return ResultWrapper.getSuccessBuilder().build();
 
     }
 
     @Override
-    public String register() {
+    public ResultWrapper register() {
         UmsMember u = new UmsMember();
         u.setNickName("c");
         umsMemberMapper.insert(u);
-        return "success";
+        return ResultWrapper.getSuccessBuilder().build();
     }
 
     @Override
-    public String login(UmsMemberLoginParamDTO umsMemberLoginParamDTO) {
+    public ResultWrapper login(UmsMemberLoginParamDTO umsMemberLoginParamDTO) {
        //登录时用的用户名查询数据库里面的数据
         UmsMember umsMember = umsMemberMapper.selectByName(umsMemberLoginParamDTO.getUsername());
         //判断用户或密码是否正确
@@ -90,12 +95,16 @@ BeanUtils.copyProperties("要转换的类", "转换后的类");
             // 密码验证，返回密码是否一致。第一个参数是明文密码，第二个参数是加密后的密码（数据库取）
             //使用BCryptPasswordEncoder进行密码加密和密码验证的流程：
             if(!passwordEncoder.matches(umsMemberLoginParamDTO.getPassword(),password)){
-                return "密码不正确";
+                return ResultWrapper.getFailBuilder().code(StateCodeEnum.PASSWORD_ERROR.getCode()).msg(StateCodeEnum.PASSWORD_ERROR.getMsg()).build();
             }
-            System.out.println("登录成功");
-            return "登录成功" ;
+            String token = JwtUtil.createToken(umsMember.getId()+"");
+            UserMemberLoginResponse userMemberLoginResponse = new UserMemberLoginResponse();
+            userMemberLoginResponse.setToken(token);
+            umsMember.setPassword("");
+            userMemberLoginResponse.setUmsMember(umsMember);
+            return ResultWrapper.getSuccessBuilder().date(userMemberLoginResponse).build() ;
         }
-        return "用户名不存在";
+        return ResultWrapper.getFailBuilder().code(StateCodeEnum.USER_EMPTY.getCode()).msg(StateCodeEnum.USER_EMPTY.getMsg()).build();
     }
 
 }
