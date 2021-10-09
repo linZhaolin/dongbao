@@ -1,6 +1,7 @@
 package com.msb.dongbao.portal.web.controller;
 
 
+import com.msb.donbao.common.base.annotations.TokenCheck;
 import com.msb.donbao.common.base.result.ResultWrapper;
 import com.msb.dongbao.ums.entity.UmsMember;
 import com.msb.dongbao.ums.entity.dto.UmsMemberLoginParamDTO;
@@ -29,6 +30,7 @@ public class UmsMemberController {
      UmsMemberService umsMemberService;
 
     @GetMapping("edit")
+    @TokenCheck
     public ResultWrapper edit(@RequestBody UmsMember umsMember){
      return umsMemberService.edit(umsMember);
     }
