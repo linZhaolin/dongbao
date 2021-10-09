@@ -1,5 +1,6 @@
 package com.msb.dongbao.portal.web.interceptor;
 
+import com.msb.donbao.common.base.TokenException;
 import com.msb.donbao.common.base.annotations.TokenCheck;
 import com.smb.msbdongbaocommonutil.JwtUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -21,7 +22,7 @@ public class AuthInterceptor implements HandlerInterceptor {
         String token=request.getHeader("token");
         //token为空，返回false
         if (StringUtils.isBlank(token)){
-            return false;
+           throw new TokenException("token 为空");
         }
 
         HandlerMethod handlerMethod=(HandlerMethod)handler;
@@ -35,7 +36,7 @@ public class AuthInterceptor implements HandlerInterceptor {
                 try {
                     JwtUtil.parseToken(token);
                 }catch(Exception e){
-                    return false;
+                    throw new TokenException("token 异常");
                 }
             }
         }

@@ -32,6 +32,7 @@ public class UmsMemberController {
     @GetMapping("edit")
     @TokenCheck
     public ResultWrapper edit(@RequestBody UmsMember umsMember){
+        System.out.println("edit");
      return umsMemberService.edit(umsMember);
     }
 
