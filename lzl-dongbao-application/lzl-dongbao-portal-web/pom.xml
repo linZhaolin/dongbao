@@ -68,7 +68,7 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/net.sourceforge.tess4j/tess4j -->
+        <!--光学识别-->
         <dependency>
             <groupId>net.sourceforge.tess4j</groupId>
             <artifactId>tess4j</artifactId>

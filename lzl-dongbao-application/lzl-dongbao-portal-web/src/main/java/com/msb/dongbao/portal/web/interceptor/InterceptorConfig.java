@@ -13,7 +13,11 @@ public class InterceptorConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(authInterceptor()).addPathPatterns("/**").excludePathPatterns("/ums-member/login").excludePathPatterns("/code/**");
+        registry.addInterceptor(authInterceptor())
+                .addPathPatterns("/**")
+                .excludePathPatterns("/ums-member/login")
+                .excludePathPatterns("/ums-member/register")
+                .excludePathPatterns("/code/**");
     }
 
     @Bean
