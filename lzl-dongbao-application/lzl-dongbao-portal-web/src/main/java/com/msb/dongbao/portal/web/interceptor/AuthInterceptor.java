@@ -4,7 +4,6 @@ import com.msb.donbao.common.base.TokenException;
 import com.msb.donbao.common.base.annotations.TokenCheck;
 import com.smb.msbdongbaocommonutil.JwtUtil;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
