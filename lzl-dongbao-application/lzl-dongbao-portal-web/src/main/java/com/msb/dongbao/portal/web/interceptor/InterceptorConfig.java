@@ -17,7 +17,9 @@ public class InterceptorConfig implements WebMvcConfigurer {
                 .addPathPatterns("/**")
                 .excludePathPatterns("/ums-member/login")
                 .excludePathPatterns("/ums-member/register")
-                .excludePathPatterns("/code/**");
+                .excludePathPatterns("/code/**")
+                .excludePathPatterns("/jcaptcha/**")
+                .excludePathPatterns("/happy-jcaptcha/**");
     }
 
     @Bean

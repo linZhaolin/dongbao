@@ -49,22 +49,33 @@ public class ImageCode {
         //
         Random random = new Random();
         this.code="";
-        for (int i=0;i<6;i++){
-            String s=String.valueOf(random.nextInt(10));
-            this.code +=s;
-
-            graphics.setColor(new Color(0,0,0));
-
-            graphics.drawString(s,(width/6)*i+10,60);
+//        for (int i=0;i<6;i++){
+//            String s=String.valueOf(random.nextInt(10));
+//            this.code +=s;
+//
+//            graphics.setColor(new Color(0,0,0));
+//
+//            graphics.drawString(s,(width/6)*i+10,60);
 
             //划线
 //            graphics.setColor(new Color(100,100,100));
 //            graphics.drawLine((width/6)*i,40,(width/6)*i+25,40-30);
-
-        }
+//        }
            //识别中文测试
 //         graphics.setColor(new Color(0,0,0));
 //        graphics.drawString("我是中国人",(width/6),40);
+
+        int num1=random.nextInt(20);
+        int num2=random.nextInt(20);
+        graphics.setColor(new Color(0,0,0));
+
+        graphics.drawString(num1+"",(width/6)*0+2,60);
+        graphics.drawString("+",(width/6)*1+2,60);
+        graphics.drawString(num2+"",(width/6)*2+2,60);
+        graphics.drawString("=",(width/6)*3+2,60);
+        graphics.drawString("?",(width/6)*4+2,60);
+        int result=num1+num2;
+        this.code=result+"";
 //         画1000条干扰线段
         graphics.setColor(new Color(100,100,100));
        for (int i=0;i<100;i++){
